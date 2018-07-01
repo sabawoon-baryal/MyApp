@@ -8,13 +8,13 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import store from "./store";
-import { AppNavigator, middleware } from "./src/navigation/containers/index";
+import { TopNavigator } from "./src/navigation/navigators/index";
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <AppNavigator />
+        <TopNavigator />
       </Provider>
     );
   }

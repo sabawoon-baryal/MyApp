@@ -46,6 +46,9 @@ class SignIn extends Component {
   goToSignUp = () => {
     this.props.navigation.navigate("SignUpRoutes");
   };
+  goToForgotPassword = () => {
+    this.props.navigation.navigate("ForgotPasswordRoutes");
+  };
 
   render() {
     if (this.state.netConnectivity) {
@@ -55,6 +58,7 @@ class SignIn extends Component {
           loginError={this.props.loginError}
           getPayload={this.getPayloadFromLayout}
           signUp={this.goToSignUp}
+          forgotPassword={this.goToForgotPassword}
         />
       );
     } else {

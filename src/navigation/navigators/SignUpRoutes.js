@@ -14,11 +14,10 @@ const routes = {
   SignUpFinalRoute: { screen: SignUpFinal }
 };
 const routesConfiguration = {
-  initialRouteName: "SignUpFinalRoute",
-  headerMode: "none"
+  initialRouteName: "SignUpWelcomeRoute"
 };
 
-export default (signUpRoutesNavigator = StackNavigator(
+export const SignUpRoutesNavigator = StackNavigator(
   routes,
   routesConfiguration
-));
+);

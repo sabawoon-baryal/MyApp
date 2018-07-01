@@ -6,7 +6,7 @@
 //   createReduxBoundAddListener
 // } from "react-navigation-redux-helpers";
 
-// import { signUpRoutesNavigator } from "../navigators/ForgotPasswordRoutes";
+// import { forgotPasswordRoutesNavigator } from "../navigators/ForgotPasswordRoutes";
 
 // const mapStateToProps = state => {
 //   return {
@@ -21,11 +21,11 @@
 
 // const addListener = createReduxBoundAddListener("root");
 
-// class SignUpNavigator extends Component {
+// class ForgotPasswordNavigation extends Component {
 //   render() {
 //     const { dispatch, navigationState } = this.props;
 //     return (
-//       <signUpRoutesNavigator
+//       <forgotPasswordRoutesNavigator
 //         navigation={addNavigationHelpers({
 //           dispatch: dispatch,
 //           state: navigationState,
@@ -36,10 +36,10 @@
 //   }
 // }
 
-// // export default connect(mapStateToProps)(SignUpNavigator);
+// export default connect(mapStateToProps)(ForgotPasswordNavigation);
 
 // // import React, { Component } from "react";
-// // import { signUpRoutesNavigator } from "../navigators/SignUpRoutes";
+// // import { forgotPasswordRoutesNavigator } from "../navigators/ForgotPasswordRoutes";
 // // import { connect } from "react-redux";
 // // import {
 // //   reduxifyNavigator,
@@ -47,10 +47,14 @@
 // //   createReactNavigationReduxMiddleware
 // // } from "react-navigation-redux-helpers";
 
-// // const appSignUpNavigator = reduxifyNavigator(signUpRoutesNavigator);
+// // const appForgotPasswordNavigator = reduxifyNavigator(
+// //   forgotPasswordRoutesNavigator
+// // );
 // // const mapStateToProps = state => ({
 // //   state: state.appTopNavigatorReducer
 // // });
 
-// // const SignUpNavigator = connect(mapStateToProps)(appSignUpNavigator);
-// // export { SignUpNavigator };
+// // const ForgotPasswordNavigator = connect(mapStateToProps)(
+// //   appForgotPasswordNavigator
+// // );
+// // export { ForgotPasswordNavigator };

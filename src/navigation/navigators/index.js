@@ -1,20 +1,19 @@
 import { StackNavigator } from "react-navigation";
 
 import SignIn from "../../modules/signIn/containers/SignIn";
-import SignUpWelcome from "../../modules/signUp/containers/SignUpWelcome";
-import ForgotPassword from "../../modules/forgotPassword/containers/ForgotPassword";
-import signUpRoutesNavigator from "./SignUpRoutes";
+import { SignUpRoutesNavigator } from "./SignUpRoutes";
+import { ForgotPasswordRoutesNavigator } from "./ForgotPasswordRoutes";
 
 const routes = {
   SignInRoute: {
     screen: SignIn
   },
-  SignUpRoutes: { screen: signUpRoutesNavigator },
-  ForgotPasswordRoute: { screen: ForgotPassword }
+  SignUpRoutes: { screen: SignUpRoutesNavigator },
+  ForgotPasswordRoutes: { screen: ForgotPasswordRoutesNavigator }
 };
 const routesConfiguration = {
   initialRouteName: "SignInRoute",
   headerMode: "none"
 };
 
-export default (topNavigator = StackNavigator(routes, routesConfiguration));
+export const TopNavigator = StackNavigator(routes, routesConfiguration);

@@ -1,5 +1,9 @@
-import { createNavigationReducer } from "react-navigation-redux-helpers";
-import topNavigator from "../navigators/index";
+// import { createNavigationReducer } from "react-navigation-redux-helpers";
+// import topNavigator from "../navigators/index";
 
-const appTopNavigatorReducer = createNavigationReducer(topNavigator);
-export default appTopNavigatorReducer;
+// export default function appTopNavigatorReducer(state, action){
+
+// }
+
+// const appTopNavigatorReducer = createNavigationReducer(topNavigator);
+// export default appTopNavigatorReducer;

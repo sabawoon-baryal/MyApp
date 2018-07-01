@@ -55,15 +55,15 @@ export default class UserContactView extends Component {
         />
 
         {this.state.emptyEmail
-          ? <TouchableOpacity style={styles.disabledJoinWeena} disabled={true}>
+          ? <TouchableOpacity style={styles.disabledLoginBtn} disabled={true}>
               <View />
-              <Text style={styles.disabledJoinWeenaBtnText}>Continue</Text>
+              <Text style={styles.disabledLoginBtnText}>Continue</Text>
             </TouchableOpacity>
           : <TouchableOpacity
-              style={styles.joinWeena}
+              style={styles.loginBtn}
               onPress={this.handleThePress.bind(this)}
             >
-              <Text style={styles.joinWeenaBtnText}>Continue</Text>
+              <Text style={styles.loginBtnText}>Continue</Text>
             </TouchableOpacity>}
 
         <View style={{ marginTop: 10 }}>
