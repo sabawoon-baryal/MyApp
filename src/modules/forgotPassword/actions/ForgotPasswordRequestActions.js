@@ -24,7 +24,11 @@ export const forgotPasswordRequestThunk = payload => {
         return false;
       })
       .then(responseJson => {
-        dispatch(onForgotPasswordRequestSuccess(responseJson.email));
+        let payload = {
+          email: responseJson.email,
+          verificationCode: responseJson.verificationCode
+        };
+        dispatch(onForgotPasswordRequestSuccess(payload));
         return true;
       })
       .catch(error => {

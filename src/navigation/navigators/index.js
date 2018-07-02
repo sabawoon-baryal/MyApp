@@ -12,7 +12,7 @@ const routes = {
   ForgotPasswordRoutes: { screen: ForgotPasswordRoutesNavigator }
 };
 const routesConfiguration = {
-  initialRouteName: "SignInRoute",
+  initialRouteName: "ForgotPasswordRoutes",
   headerMode: "none"
 };
 

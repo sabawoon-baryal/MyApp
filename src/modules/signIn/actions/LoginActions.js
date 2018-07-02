@@ -73,7 +73,7 @@ export const loginThunk = payload => {
       .catch(error => {
         //  here, you should show error about email & password
         console.log("login error step 1.");
-        dispatch(onLoginFailure(error));
+        dispatch(onLoginFailure(error.message));
       });
   };
 };

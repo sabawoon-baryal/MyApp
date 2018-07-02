@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    padding: 20
+    padding: 20,
+    alignItems: "center"
   },
   loginBtnText: { color: "white", marginLeft: -5 },
   loginBtn: {
@@ -37,6 +37,38 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 15
+  },
+  headerImage: {
+    height: 200
+  },
+  twoTextInputsSideBySide: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-evenly"
+  },
+  facebookBtn: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    color: "white",
+    backgroundColor: "rgb(59,89,152)",
+    borderRadius: 3,
+    width: "50%",
+    alignItems: "center"
+  },
+  facebookBtnText: {
+    color: "white"
+  },
+  googleBtn: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    color: "white",
+    backgroundColor: "white",
+    borderRadius: 3,
+    width: "50%",
+    alignItems: "center"
+  },
+  googleBtnText: {
+    color: "red"
   },
   textInput: {
     width: "100%",

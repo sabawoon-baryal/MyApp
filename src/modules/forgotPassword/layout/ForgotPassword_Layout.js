@@ -88,15 +88,21 @@ export default class ForgotPassword_Layout extends Component {
               </View>
             </TouchableOpacity>}
 
-        <View>
-          <Text>
-            {error}
-          </Text>
+        <View style={{ paddingVertical: 20 }}>
+          <View>
+            <Text>
+              {error}
+            </Text>
+          </View>
+
+          <View style={{ alignItems: "center" }}>
+            {this.state.validEmail ? <Text /> : <Text>Invalid email</Text>}
+          </View>
         </View>
 
-        <View>
-          {this.state.validEmail ? <Text /> : <Text>Invalid email</Text>}
-        </View>
+        {this.props.request_complete
+          ? <Text>A Verification code was sent to your email</Text>
+          : <Text />}
 
         <TouchableOpacity
           style={styles.clearButton}

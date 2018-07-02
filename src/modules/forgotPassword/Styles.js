@@ -38,6 +38,11 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 15
   },
+  codeInputVerification: {
+    height: 65,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   textInput: {
     width: "100%",
     height: 45,
@@ -340,5 +345,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  codeConfirmation: {
+    // backgroundColor: "red"
   }
 });

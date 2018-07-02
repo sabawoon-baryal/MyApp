@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Image,
   ScrollView,
   Button,
   Text,
@@ -9,6 +10,7 @@ import {
   ActivityIndicator
 } from "react-native";
 import { styles } from "../styles";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -58,10 +60,7 @@ export class SignIn_Layout extends Component {
 
   render() {
     let indicator = this.props.loginLoading;
-    let error = this.props.theError;
-
-    var myEmptyPassword;
-    var myEmptyEmail;
+    let error = this.props.loginError;
 
     return (
       <View style={styles.container}>
@@ -113,6 +112,15 @@ export class SignIn_Layout extends Component {
                   : <View />}
               </View>
             </TouchableOpacity>}
+
+        <View style={styles.twoTextInputsSideBySide}>
+          <TouchableOpacity style={styles.facebookBtn}>
+            <Text style={styles.facebookBtnText}>Facebook</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.googleBtn}>
+            <Text style={styles.googleBtnText}>Google+</Text>
+          </TouchableOpacity>
+        </View>
 
         <View>
           <Text>

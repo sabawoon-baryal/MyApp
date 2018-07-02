@@ -34,12 +34,9 @@ class SignIn extends Component {
   };
   getPayloadFromLayout = async payload => {
     if (payload.valid) {
-      await this.props.login(payload);
-      await AsyncStorage.setItem(
-        "user_token",
-        this.props.userPayload.access_token
-      );
-      await this.props.navigation.navigate("Home");
+      this.props.login(payload);
+      AsyncStorage.setItem("user_token", this.props.userPayload.access_token);
+      this.props.navigation.navigate("Home");
     } else return;
   };
 
