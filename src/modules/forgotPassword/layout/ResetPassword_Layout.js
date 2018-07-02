@@ -31,27 +31,30 @@ export default class ResetPassword_Layout extends Component {
         this.state.confirm_password.length >= 6
       ) {
         this.setState({ lengthMatch: true });
-        this.props.passPassword(
-          this.state.password,
-          this.state.confirm_password
-        );
+        let payload = {
+          password: this.state.password,
+          confirm_password: this.state.confirm_password
+        };
+        this.props.passPassword(payload);
       } else {
         this.setState({ lengthMatch: false });
       }
     } else {
       this.setState({ matchBoth: false });
     }
-    // if (
-    //   this.state.password.length >= 6 &&
-    //   this.state.confirm_password.length >= 6
-    // ) {
-    //   this.setState({ lengthMatch: true });
-    // } else {
-    //   this.setState({ lengthMatch: false });
-    // }
+    if (
+      this.state.password.length >= 6 &&
+      this.state.confirm_password.length >= 6
+    ) {
+      this.setState({ lengthMatch: true });
+    } else {
+      this.setState({ lengthMatch: false });
+    }
   };
 
   render() {
+    let indicator = this.props.resetting;
+    let resetPasswordError = this.props.resetPasswordError;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Create a New Password</Text>
@@ -94,24 +97,21 @@ export default class ResetPassword_Layout extends Component {
         </View>
 
         {this.state.empty_password || this.state.empty_confirm_password
-          ? <TouchableOpacity style={styles.disabledJoinWeena} disabled={true}>
+          ? <TouchableOpacity style={styles.disabledLoginBtn} disabled={true}>
               <View />
-              <Text style={styles.disabledJoinWeenaBtnText}>Continue</Text>
+              <Text style={styles.disabledLoginBtnText}>Continue</Text>
             </TouchableOpacity>
           : <TouchableOpacity
-              style={styles.joinWeena}
+              style={styles.loginBtn}
               onPress={this.handleThePress.bind(this)}
             >
               <View />
-              <Text style={styles.joinWeenaBtnText}>Continue</Text>
-              {/* <View>
+              <Text style={styles.loginBtnText}>Continue</Text>
+              <View>
                 {indicator && this.state.matchBoth
-                  ? <ActivityIndicator
-                      color="#fff"
-                      style={{ paddingRight: 10 }}
-                    />
+                  ? <ActivityIndicator color="#fff" />
                   : <View />}
-              </View> */}
+              </View>
             </TouchableOpacity>}
 
         <View style={{ marginVertical: 10 }}>
@@ -126,11 +126,11 @@ export default class ResetPassword_Layout extends Component {
             : <Text>Password must be atleast 6 characters</Text>}
         </View>
 
-        {/* <View>
+        <View>
           <Text>
-            {error}
+            {resetPasswordError}
           </Text>
-        </View> */}
+        </View>
       </View>
     );
   }

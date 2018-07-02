@@ -5,6 +5,7 @@ import { SignIn_Layout } from "../layout/SignIn_Layout";
 import { loginThunk } from "../actions/LoginActions";
 import OfflineMode_Layout from "../../../sharedComponents/OfflineMode_Layout";
 import LoginReducer from "../reducers/LoginReducer";
+import ResetPasswordReducer from "../../forgotPassword/reducers/ResetPasswordReducer";
 
 class SignIn extends Component {
   constructor() {

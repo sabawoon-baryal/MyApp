@@ -61,7 +61,6 @@ export class SignIn_Layout extends Component {
   render() {
     let indicator = this.props.loginLoading;
     let error = this.props.loginError;
-
     return (
       <View style={styles.container}>
         <TextInput

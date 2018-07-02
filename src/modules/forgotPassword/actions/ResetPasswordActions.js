@@ -4,8 +4,36 @@ import {
   RESET_PASSWORD_SUCCESS
 } from "../Constants";
 
-export const resetPasswordThunk = () => {
-  return dispatch => {};
+import { RESET_PASSWORD_ROUTE } from "../../../api/constants";
+
+export const resetPasswordThunk = payload => {
+  return dispatch => {
+    dispatch(onResetPasswordRequest());
+    return fetch(RESET_PASSWORD_ROUTE, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        password: payload.password,
+        confirm_password: payload.confirm_password
+      })
+    })
+      .then(response => {
+        if (response.status == 200) return response.json();
+        else throw response.json;
+        return false;
+      })
+      .then(responseJson => {
+        dispatch(onResetPasswordSuccess(payload));
+        return true;
+      })
+      .catch(error => {
+        dispatch(onResetPasswordFailure(error.message));
+        return false;
+      });
+  };
 };
 
 const onResetPasswordRequest = () => {

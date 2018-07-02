@@ -10,7 +10,7 @@ class EmailVErification extends Component {
     this.props.navigation.navigate("ResetPasswordRoute");
   };
   render() {
-    // get the verification code from ForgotPasswordRequest
+    // get the verification code from ForgotPasswordRequest, or from store
     verificationCode = this.props.navigation.getParam("verificationCode");
 
     return (

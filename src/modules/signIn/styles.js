@@ -49,7 +49,6 @@ export const styles = StyleSheet.create({
   facebookBtn: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    color: "white",
     backgroundColor: "rgb(59,89,152)",
     borderRadius: 3,
     width: "50%",
@@ -61,7 +60,6 @@ export const styles = StyleSheet.create({
   googleBtn: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    color: "white",
     backgroundColor: "white",
     borderRadius: 3,
     width: "50%",

@@ -24,6 +24,7 @@ export default class EmailVerification_Layout extends Component {
     };
   }
   _onFulfill = code => {
+    // code == this.state.verificationCode
     if (code == "123456") {
       this.setState({ validVerificationCode: true });
       this.props.toResetPassword();
