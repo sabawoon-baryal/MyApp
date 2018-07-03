@@ -1,8 +1,16 @@
 package com.weenaaf_mobile_app_new_version;
 
-import android.app.Application;
+// new 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.facebook.appevents.AppEventsLogger;
+// 
 
+import android.app.Application;
 import com.facebook.react.ReactApplication;
+import com.magus.fblogin.FacebookLoginPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.lugg.ReactSnackbar.ReactSnackbarPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -14,6 +22,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
+  // new
+  private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
+
+  // new
+  protected static CallbackManager getCallbackManager() {
+    return mCallbackManager;
+  }
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
@@ -23,11 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new ReactSnackbarPackage(),
-            new VectorIconsPackage()
-      );
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new FacebookLoginPackage(),
+          new FBSDKPackage(mCallbackManager), new ReactSnackbarPackage(), new VectorIconsPackage());
     }
 
     @Override
@@ -44,6 +56,8 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
+    SoLoader.init(this, false);
+    // new
+    AppEventsLogger.activateApp(this);
   }
 }

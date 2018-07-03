@@ -63,8 +63,7 @@ export const styles = StyleSheet.create({
   },
   clearButton: {
     backgroundColor: "transparent",
-    borderColor: "transparent",
-    textDecorationLine: "underline"
+    borderColor: "transparent"
   },
   clearButtonText: {
     color: "red",

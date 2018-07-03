@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { styles } from "../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
+import FBLoginButton from "../containers/FBLoginButton";
 
 const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -113,9 +114,10 @@ export class SignIn_Layout extends Component {
             </TouchableOpacity>}
 
         <View style={styles.twoTextInputsSideBySide}>
-          <TouchableOpacity style={styles.facebookBtn}>
+          {/* <TouchableOpacity style={styles.facebookBtn}>
             <Text style={styles.facebookBtnText}>Facebook</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <FBLoginButton />
           <TouchableOpacity style={styles.googleBtn}>
             <Text style={styles.googleBtnText}>Google+</Text>
           </TouchableOpacity>

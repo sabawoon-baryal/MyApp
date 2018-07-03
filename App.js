@@ -11,6 +11,11 @@ import store from "./store";
 import { TopNavigator } from "./src/navigation/navigators/index";
 
 export default class App extends Component {
+  // componentDidMount() {
+  //   first show splash
+  //    then check if the AsyncStorage has access token for login, to redirect it to home page with out login
+
+  // }
   render() {
     return (
       <Provider store={store}>

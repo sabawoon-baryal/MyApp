@@ -6,6 +6,7 @@ import { loginThunk } from "../actions/LoginActions";
 import OfflineMode_Layout from "../../../sharedComponents/OfflineMode_Layout";
 import LoginReducer from "../reducers/LoginReducer";
 import ResetPasswordReducer from "../../forgotPassword/reducers/ResetPasswordReducer";
+import Snackbar from "react-native-android-snackbar";
 
 class SignIn extends Component {
   constructor() {
@@ -18,15 +19,6 @@ class SignIn extends Component {
       refreshOffline: false
     };
   }
-  componentDidMount() {
-    NetInfo.isConnected.fetch().then(isConnected => {
-      if (isConnected) {
-        this.setState({ netConnectivity: true });
-      } else {
-        this.setState({ netConnectivity: false });
-      }
-    });
-  }
 
   // send payload that contains email & password, validEmail condition to loginThunk
 
@@ -35,9 +27,18 @@ class SignIn extends Component {
   };
   getPayloadFromLayout = async payload => {
     if (payload.valid) {
-      this.props.login(payload);
-      AsyncStorage.setItem("user_token", this.props.userPayload.access_token);
-      this.props.navigation.navigate("Home");
+      if (this.state.netConnectivity) {
+        let result = await this.props.login(payload);
+        if (result) {
+          AsyncStorage.setItem(
+            "user_token",
+            this.props.userPayload.access_token
+          );
+          this.props.navigation.navigate("Home");
+        } else return;
+      } else {
+        Snackbar.show("No internet connection");
+      }
     } else return;
   };
 
@@ -47,6 +48,16 @@ class SignIn extends Component {
   goToForgotPassword = () => {
     this.props.navigation.navigate("ForgotPasswordRoutes");
   };
+
+  componentDidMount() {
+    NetInfo.isConnected.fetch().then(isConnected => {
+      if (isConnected) {
+        this.setState({ netConnectivity: true });
+      } else {
+        this.setState({ netConnectivity: false });
+      }
+    });
+  }
 
   render() {
     if (this.state.netConnectivity) {

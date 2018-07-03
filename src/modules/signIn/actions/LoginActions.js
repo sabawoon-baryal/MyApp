@@ -8,9 +8,10 @@ import { Platform } from "react-native";
 // payload contains: email, password & valid Email condition
 
 export const loginThunk = payload => {
+  let overAllResultCodition = null;
   return dispatch => {
     dispatch(onLoginRequest());
-    fetch(LOGIN_URL, {
+    return fetch(LOGIN_URL, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -33,8 +34,8 @@ export const loginThunk = payload => {
         return null;
       })
       .then(responseJson => {
+        overAllResultCodition = true;
         if (responseJson.access_token !== null) {
-          this.storeToken(responseJson.access_token);
           fetch(ACCESS_USER_URL, {
             headers: {
               Accept: "application/json",
@@ -50,6 +51,7 @@ export const loginThunk = payload => {
               return null;
             })
             .then(userResponseJson => {
+              overAllResultCodition = true;
               let completePayload = {
                 access_token: responseJson.access_token,
                 userId: userResponseJson.id,
@@ -64,16 +66,20 @@ export const loginThunk = payload => {
                 userDistrict: userResponseJson.district_id
               };
               dispatch(onLoginSuccess(completePayload));
+              return true;
             })
             .catch(error => {
               console.log("login error step 2.");
+              return false;
             });
+          return true;
         }
       })
       .catch(error => {
         //  here, you should show error about email & password
         console.log("login error step 1.");
         dispatch(onLoginFailure(error.message));
+        return false;
       });
   };
 };

@@ -32,6 +32,7 @@ export default class EmailVerification_Layout extends Component {
       this.setState({ validVerificationCode: false });
     }
   };
+
   render() {
     return (
       <View style={styles.container}>
@@ -54,6 +55,13 @@ export default class EmailVerification_Layout extends Component {
         {this.state.validVerificationCode
           ? <Text />
           : <Text>verification code doesn't match</Text>}
+
+        <TouchableOpacity
+          style={styles.clearButton}
+          onPress={this.goBackToSignIn}
+        >
+          <Text style={styles.clearButtonText}>Resend verification code</Text>
+        </TouchableOpacity>
       </View>
     );
   }

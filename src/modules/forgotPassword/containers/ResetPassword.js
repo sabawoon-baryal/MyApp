@@ -4,6 +4,7 @@ import ResetPassword_Layout from "../layout/ResetPassword_Layout";
 import { connect } from "react-redux";
 import { resetPasswordThunk } from "../actions/ResetPasswordActions";
 import ResetPasswordReducer from "../reducers/ResetPasswordReducer";
+import Snackbar from "react-native-android-snackbar";
 
 class ResetPassword extends Component {
   constructor() {
@@ -14,11 +15,15 @@ class ResetPassword extends Component {
   }
 
   getPayloadFromLayout = async payload => {
-    let result = await this.props.resetPassword(payload);
-    if (result) {
-      // redirect it to login page to login with new password
-      this.props.navigation.navigate("SignInRoute");
-    } else return;
+    if (this.state.netConnectivity) {
+      let result = await this.props.resetPassword(payload);
+      if (result) {
+        // redirect it to login page to login with new password
+        this.props.navigation.navigate("SignInRoute");
+      } else return;
+    } else {
+      Snackbar.show("No internet connection");
+    }
   };
 
   componentDidMount() {

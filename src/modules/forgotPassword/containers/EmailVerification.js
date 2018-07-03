@@ -1,25 +1,43 @@
 import React, { Component } from "react";
 import EmailVerification_Layout from "../layout/EmailVerification_Layout";
-import { View } from "react-native";
+import { NetInfo } from "react-native";
 import { styles } from "../Styles";
 import { connect } from "react-redux";
 import ForgotPasswordRequestReducer from "../reducers/ForgotPasswordRequestReducer";
+import Snackbar from "react-native-android-snackbar";
 
 class EmailVErification extends Component {
+  constructor() {
+    super();
+    this.state = {
+      netConnectivity: true
+    };
+  }
   goToResetPassword = () => {
-    this.props.navigation.navigate("ResetPasswordRoute");
+    if (this.state.netConnectivity) {
+      this.props.navigation.navigate("ResetPasswordRoute");
+    } else Snackbar.show("No internet connection");
   };
+
+  componentDidMount() {
+    NetInfo.isConnected.fetch().then(isConnected => {
+      if (isConnected) {
+        this.setState({ netConnectivity: true });
+      } else {
+        this.setState({ netConnectivity: false });
+      }
+    });
+  }
+
   render() {
     // get the verification code from ForgotPasswordRequest, or from store
     verificationCode = this.props.navigation.getParam("verificationCode");
 
     return (
-      <View style={styles.container}>
-        <EmailVerification_Layout
-          verificationCode={this.props.verificationCode}
-          toResetPassword={this.goToResetPassword}
-        />
-      </View>
+      <EmailVerification_Layout
+        verificationCode={this.props.verificationCode}
+        toResetPassword={this.goToResetPassword}
+      />
     );
   }
 }
