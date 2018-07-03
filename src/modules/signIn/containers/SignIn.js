@@ -7,6 +7,7 @@ import OfflineMode_Layout from "../../../sharedComponents/OfflineMode_Layout";
 import LoginReducer from "../reducers/LoginReducer";
 import ResetPasswordReducer from "../../forgotPassword/reducers/ResetPasswordReducer";
 import Snackbar from "react-native-android-snackbar";
+import { LoginManager } from "react-native-fbsdk";
 
 class SignIn extends Component {
   constructor() {
@@ -45,8 +46,26 @@ class SignIn extends Component {
   goToSignUp = () => {
     this.props.navigation.navigate("SignUpRoutes");
   };
+
   goToForgotPassword = () => {
     this.props.navigation.navigate("ForgotPasswordRoutes");
+  };
+
+  loginWithFacebook = () => {
+    LoginManager.logInWithReadPermissions(["public_profile"]).then(
+      function(result) {
+        if (result.isCancelled) {
+          console.log("Login Cancelled");
+        } else {
+          console.log(
+            "Login Success permission granted:" + result.grantedPermissions
+          );
+        }
+      },
+      function(error) {
+        console.log("some error occurred!!");
+      }
+    );
   };
 
   componentDidMount() {
@@ -68,6 +87,7 @@ class SignIn extends Component {
           getPayload={this.getPayloadFromLayout}
           signUp={this.goToSignUp}
           forgotPassword={this.goToForgotPassword}
+          loginWithFacebook={this.loginWithFacebook}
         />
       );
     } else {

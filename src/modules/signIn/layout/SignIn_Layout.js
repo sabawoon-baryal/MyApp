@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { styles } from "../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
-import FBLoginButton from "../containers/FBLoginButton";
+import { LoginButton } from "react-native-fbsdk";
 
 const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -55,6 +55,10 @@ export class SignIn_Layout extends Component {
   };
   goToForgotPassword = () => {
     this.props.forgotPassword();
+  };
+
+  loginWithFacebook = () => {
+    this.props.loginWithFacebook();
   };
 
   sendDataToSignIn = valid => {};
@@ -114,10 +118,13 @@ export class SignIn_Layout extends Component {
             </TouchableOpacity>}
 
         <View style={styles.twoTextInputsSideBySide}>
-          {/* <TouchableOpacity style={styles.facebookBtn}>
+          <TouchableOpacity
+            style={styles.facebookBtn}
+            onPress={this.loginWithFacebook}
+          >
             <Text style={styles.facebookBtnText}>Facebook</Text>
-          </TouchableOpacity> */}
-          <FBLoginButton />
+          </TouchableOpacity>
+
           <TouchableOpacity style={styles.googleBtn}>
             <Text style={styles.googleBtnText}>Google+</Text>
           </TouchableOpacity>
