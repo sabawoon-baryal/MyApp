@@ -7,7 +7,13 @@ import OfflineMode_Layout from "../../../sharedComponents/OfflineMode_Layout";
 import LoginReducer from "../reducers/LoginReducer";
 import ResetPasswordReducer from "../../forgotPassword/reducers/ResetPasswordReducer";
 import Snackbar from "react-native-android-snackbar";
-import { LoginManager } from "react-native-fbsdk";
+import {
+  LoginManager,
+  AccessToken,
+  GraphRequest,
+  GraphRequestManager
+} from "react-native-fbsdk";
+import { fbLoginThunk } from "../actions/FBLoginActions";
 
 class SignIn extends Component {
   constructor() {
@@ -52,20 +58,8 @@ class SignIn extends Component {
   };
 
   loginWithFacebook = () => {
-    LoginManager.logInWithReadPermissions(["public_profile"]).then(
-      function(result) {
-        if (result.isCancelled) {
-          console.log("Login Cancelled");
-        } else {
-          console.log(
-            "Login Success permission granted:" + result.grantedPermissions
-          );
-        }
-      },
-      function(error) {
-        console.log("some error occurred!!");
-      }
-    );
+    // call fbLoginThunk
+    this.props.fbLogin();
   };
 
   componentDidMount() {
@@ -107,7 +101,8 @@ mapStateToProps = state => {
 };
 mapDispatchToProps = dispatch => {
   return {
-    login: payload => dispatch(loginThunk(payload))
+    login: payload => dispatch(loginThunk(payload)),
+    fbLogin: () => dispatch(fbLoginThunk())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
