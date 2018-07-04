@@ -95,6 +95,12 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 16
   },
+  fbClearButtonText: {
+    color: "rgb(59,89,152)",
+    marginBottom: 20,
+    fontSize: 16,
+    textDecorationLine: "underline"
+  },
 
   // Create New Account btn styles
   newAccButton: {

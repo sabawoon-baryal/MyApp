@@ -9,7 +9,6 @@ import com.facebook.appevents.AppEventsLogger;
 
 import android.app.Application;
 import com.facebook.react.ReactApplication;
-import com.magus.fblogin.FacebookLoginPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.lugg.ReactSnackbar.ReactSnackbarPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -38,8 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(new MainReactPackage(), new FacebookLoginPackage(),
-          new FBSDKPackage(mCallbackManager), new ReactSnackbarPackage(), new VectorIconsPackage());
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new FBSDKPackage(mCallbackManager),
+          new ReactSnackbarPackage(), new VectorIconsPackage());
     }
 
     @Override

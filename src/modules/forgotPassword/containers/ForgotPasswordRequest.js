@@ -25,10 +25,7 @@ class ForgotPasswordRequest extends Component {
         if (result) {
           setTimeout(() => {}, 2000);
           this.props.navigation.navigate(
-            "ForgotPasswordEmailVerificationRoute",
-            {
-              verificationCode: this.props.verificationCode
-            }
+            "ForgotPasswordEmailVerificationRoute"
           );
         } else return;
       } else {
@@ -65,9 +62,7 @@ mapStateToProps = state => {
     requesting: state.ForgotPasswordRequestReducer.requesting,
     request_complete: state.ForgotPasswordRequestReducer.request_complete,
     verified_email: state.ForgotPasswordRequestReducer.verified_email,
-    forgotPasswordRequestError: state.ForgotPasswordRequestReducer.error,
-    verificationCode:
-      state.ForgotPasswordRequestReducer.payload.verificationCode
+    forgotPasswordRequestError: state.ForgotPasswordRequestReducer.error
   };
 };
 mapDispatchToProps = dispatch => {

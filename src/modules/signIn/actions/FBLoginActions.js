@@ -19,6 +19,7 @@ export const fbLoginThunk = () => {
       result => {
         if (result.isCancelled) {
           console.log("Login Cancelled");
+          dispatch(onFBLoginFailure("login was cancelled"));
         } else {
           console.log(
             "Login Success permission granted:" + result.grantedPermissions
@@ -46,7 +47,8 @@ export const fbLoginThunk = () => {
                     accessToken: accessToken,
                     parameters: {
                       fields: {
-                        string: "email,name,first_name,middle_name,last_name"
+                        string:
+                          "email,name,first_name,middle_name,last_name,about,website"
                       }
                     }
                   },

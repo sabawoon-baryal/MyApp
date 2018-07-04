@@ -117,19 +117,6 @@ export class SignIn_Layout extends Component {
               </View>
             </TouchableOpacity>}
 
-        <View style={styles.twoTextInputsSideBySide}>
-          <TouchableOpacity
-            style={styles.facebookBtn}
-            onPress={this.loginWithFacebook}
-          >
-            <Text style={styles.facebookBtnText}>Facebook</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.googleBtn}>
-            <Text style={styles.googleBtnText}>Google+</Text>
-          </TouchableOpacity>
-        </View>
-
         <View>
           <Text>
             {error}
@@ -149,6 +136,13 @@ export class SignIn_Layout extends Component {
         </TouchableOpacity>
 
         <Text style={{ margin: 20 }}>OR</Text>
+
+        <TouchableOpacity
+          style={styles.clearButton}
+          onPress={this.loginWithFacebook}
+        >
+          <Text style={styles.fbClearButtonText}>Login with Facebook</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity style={styles.newAccButton} onPress={this.goToSignUp}>
           <Text style={styles.newAccButtonText}>Create New Account</Text>
