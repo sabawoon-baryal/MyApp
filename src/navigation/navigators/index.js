@@ -3,16 +3,18 @@ import { StackNavigator } from "react-navigation";
 import SignIn from "../../modules/signIn/containers/SignIn";
 import { SignUpRoutesNavigator } from "./SignUpRoutes";
 import { ForgotPasswordRoutesNavigator } from "./ForgotPasswordRoutes";
+import { TabRoutesNavigator } from "./TabRoutes";
 
 const routes = {
   SignInRoute: {
     screen: SignIn
   },
   SignUpRoutes: { screen: SignUpRoutesNavigator },
-  ForgotPasswordRoutes: { screen: ForgotPasswordRoutesNavigator }
+  ForgotPasswordRoutes: { screen: ForgotPasswordRoutesNavigator },
+  TabRoutes: { screen: TabRoutesNavigator }
 };
 const routesConfiguration = {
-  initialRouteName: "SignInRoute",
+  initialRouteName: "TabRoutes",
   headerMode: "none"
 };
 

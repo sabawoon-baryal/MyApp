@@ -46,6 +46,8 @@ export default class EmailVerification_Layout extends Component {
   render() {
     let indicator = this.props.requesting;
     let messageIndicator = this.props.request_complete;
+    let isResendWasClicked = this.props.isResendFlag;
+    let resendVerificationError = this.props.resendVerificationError;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Enter the 6 digit code</Text>
@@ -68,7 +70,7 @@ export default class EmailVerification_Layout extends Component {
           ? <Text />
           : <Text>verification code doesn't match</Text>}
 
-        {this.state.timer > 0
+        {this.state.timer > 0 && !isResendWasClicked && !messageIndicator
           ? <TouchableOpacity style={styles.disabledLoginBtn} disabled={true}>
               <View />
               <Text style={styles.disabledLoginBtnText}>
@@ -85,8 +87,11 @@ export default class EmailVerification_Layout extends Component {
             </TouchableOpacity>}
 
         {indicator ? <ActivityIndicator color="#000" /> : <View />}
-        {messageIndicator
+        {isResendWasClicked && messageIndicator
           ? <Text>Verification code was sent to your email</Text>
+          : <Text />}
+        {isResendWasClicked && resendVerificationError !== null
+          ? <Text>please try again</Text>
           : <Text />}
       </View>
     );

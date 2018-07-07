@@ -5,6 +5,9 @@ import SignUpReducer from "../modules/signUp/reducers/SignUpReducer";
 import ForgotPasswordRequestReducer from "../modules/forgotPassword/reducers/ForgotPasswordRequestReducer";
 import ResetPasswordReducer from "../modules/forgotPassword/reducers/ResetPasswordReducer";
 import FBLoginReducer from "../modules/signIn/reducers/FBLoginReducer";
+import storiesReducer from "../modules/homeTab/reducers/storiesReducer";
+import EditStoryReducer from "../modules/homeTab/reducers/EditStoryReducer";
+import ProfileChangeReducer from "../modules/moreOptionsTab/reducers/ProfileChangeReducer";
 
 const appReducer = combineReducers({
   // list the react navigation & other reducers here
@@ -15,6 +18,9 @@ const appReducer = combineReducers({
   FBLoginReducer,
   SignUpReducer,
   ForgotPasswordRequestReducer,
-  ResetPasswordReducer
+  ResetPasswordReducer,
+  storiesReducer,
+  EditStoryReducer,
+  ProfileChangeReducer
 });
 export default appReducer;

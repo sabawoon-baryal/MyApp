@@ -16,11 +16,20 @@ const FORGOT_PASSOWORD_EMAIL_VERIFICATION = `http://${localhost}:8000/api/user`;
 // reset password
 const RESET_PASSWORD_ROUTE = `http://${localhost}:8000/api/user`;
 
+// latest stories
+
+const LATEST_STORIES = `http://${localhost}:8000/api/user`;
+
+// profile update
+const PROFILE_UPDATE = `http://${localhost}:8000/api/user`;
+
 export {
   LOGIN_URL,
   ACCESS_USER_URL,
   SIGNUP_URL,
   SIGNUP_VERIFY,
   FORGOT_PASSOWORD_EMAIL_VERIFICATION,
-  RESET_PASSWORD_ROUTE
+  RESET_PASSWORD_ROUTE,
+  LATEST_STORIES,
+  PROFILE_UPDATE
 };

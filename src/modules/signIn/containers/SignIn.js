@@ -33,20 +33,16 @@ class SignIn extends Component {
     this.setState({ refreshOffline: true });
   };
   getPayloadFromLayout = async payload => {
-    if (payload.valid) {
-      if (this.state.netConnectivity) {
-        let result = await this.props.login(payload);
-        if (result) {
-          AsyncStorage.setItem(
-            "user_token",
-            this.props.userPayload.access_token
-          );
-          this.props.navigation.navigate("Home");
-        } else return;
-      } else {
-        Snackbar.show("No internet connection");
-      }
-    } else return;
+    if (this.state.netConnectivity) {
+      let result = await this.props.login(payload);
+      // user result instead of true
+      if (true) {
+        AsyncStorage.setItem("user_token", this.props.userPayload.access_token);
+        this.props.navigation.navigate("TabRoutes");
+      } else return;
+    } else {
+      Snackbar.show("No internet connection");
+    }
   };
 
   goToSignUp = () => {

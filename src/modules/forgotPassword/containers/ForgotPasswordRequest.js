@@ -67,7 +67,8 @@ mapStateToProps = state => {
 };
 mapDispatchToProps = dispatch => {
   return {
-    ForgotPasswordRequest: email => dispatch(forgotPasswordRequestThunk(email))
+    ForgotPasswordRequest: email =>
+      dispatch(forgotPasswordRequestThunk(email, false))
   };
 };
 

@@ -46,6 +46,9 @@ class EmailVErification extends Component {
         toResetPassword={this.goToResetPassword}
         resendVerificationcode={this.resendVerificationcode}
         requesting={this.props.requesting}
+        request_complete={this.props.request_complete}
+        resendVerificationError={this.props.resendVerificationError}
+        isResendFlag={this.props.isResendFlag}
       />
     );
   }
@@ -54,13 +57,17 @@ class EmailVErification extends Component {
 mapStateToProps = state => {
   return {
     payload: state.ForgotPasswordRequestReducer.payload,
-    requesting: state.ForgotPasswordRequestReducer.requesting
+    requesting: state.ForgotPasswordRequestReducer.requesting,
+    request_complete: state.ForgotPasswordRequestReducer.request_complete,
+    resendVerificationError: state.ForgotPasswordRequestReducer.error,
+    isResendFlag: state.ForgotPasswordRequestReducer.isResendFlag
   };
 };
 
 mapDispatchToProps = dispatch => {
   return {
-    ForgotPasswordRequest: email => dispatch(forgotPasswordRequestThunk(email))
+    ForgotPasswordRequest: email =>
+      dispatch(forgotPasswordRequestThunk(email, true))
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(EmailVErification);
