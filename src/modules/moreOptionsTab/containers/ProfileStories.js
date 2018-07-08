@@ -23,78 +23,91 @@ const stories = [
     text: "Kauai Highlands",
     date: "Jul 6 at 11:20 AM",
     url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
     height: 734
   },
   {
     text: "Storm is coming",
     date: "Jul 1 at 12:21 PM",
     url: require("../../../assets/images/donating.png"),
+    imageType: "png",
     height: 200
   },
   {
     text: "Venice - Grand Canal view from the Rialto Bridge",
     date: "Jun 18 at 7:49 PM",
     url: require("../../../assets/images/profile.jpg"),
+    imageType: "jpg",
     height: 500
   },
   {
     text: "Mexican wolf",
     date: "Jun 15 at 8:49 AM",
     url: require("../../../assets/images/slider-3.jpg"),
+    imageType: "jpg",
     height: 538
   },
   {
     text: "Mexican wolf",
     date: "Apr 30 at 3:15 PM",
     url: require("../../../assets/images/splash-screen.jpg"),
+    imageType: "jpg",
     height: 975
   },
   {
     text: "Mexican wolf",
     date: "Apr 15 at 10:01 AM",
     url: require("../../../assets/images/blood_donation.jpg"),
+    imageType: "jpg",
     height: 827
   },
   {
     text: "Mexican wolf",
     date: "Mar 15 at 5:11 AM",
     url: require("../../../assets/images/slider-3.jpg"),
+    imageType: "jpg",
     height: 538
   },
   {
     text: "Mexican wolf",
     date: "Mar 14 at 2:49 PM",
     url: require("../../../assets/images/splash-screen.jpg"),
+    imageType: "jpg",
     height: 975
   },
   {
     text: "Mexican wolf",
     date: "Feb 15 at 6:26 PM",
     url: require("../../../assets/images/donating.png"),
+    imageType: "png",
     height: 200
   },
   {
     text: "Mexican wolf",
     date: "Feb 1 at 9:19 PM",
     url: require("../../../assets/images/blood_donation.jpg"),
+    imageType: "jpg",
     height: 827
   },
   {
     text: "Mexican wolf",
     date: "Jan 30 at 11:13 AM",
     url: require("../../../assets/images/splash-screen.jpg"),
+    imageType: "jpg",
     height: 975
   },
   {
     text: "Mexican wolf",
     date: "Jan 29 at 7:49 PM",
     url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
     height: 734
   },
   {
     text: "Mexican wolf",
     date: "Jan 19 at 7:49 PM",
     url: require("../../../assets/images/blood_donation.jpg"),
+    imageType: "jpg",
     height: 827
   },
   {

@@ -4,15 +4,19 @@ import MoreOptionsHome from "../../modules/moreOptionsTab/containers/MoreOptions
 import UserProfile from "../../modules/moreOptionsTab/containers/UserProfile";
 import ProfileStories from "../../modules/moreOptionsTab/containers/ProfileStories";
 import ProfileSelectedStory from "../../modules/moreOptionsTab/containers/ProfileSelectedStory";
+import AddNewStory from "../../modules/moreOptionsTab/containers/AddNewStory";
+import AddStoryHeaderButton from "../../modules/moreOptionsTab/containers/AddStoryHeaderButton";
 
 const routes = {
   MoreOptionsHomeRoute: { screen: MoreOptionsHome },
   UserProfileRoute: { screen: UserProfile },
   ProfileStoriesRoute: { screen: ProfileStories },
-  SelectedStoryRoute: { screen: ProfileSelectedStory }
+  SelectedStoryRoute: { screen: ProfileSelectedStory },
+  AddNewStoryRoute: { screen: AddNewStory },
+  AddStoryHeaderButtonRoute: { screen: AddStoryHeaderButton }
 };
 const routesConfiguration = {
-  initialRouteName: "UserProfileRoute"
+  initialRouteName: "MoreOptionsHomeRoute"
 };
 
 export const MoreOptionsTabRouteNavigator = StackNavigator(

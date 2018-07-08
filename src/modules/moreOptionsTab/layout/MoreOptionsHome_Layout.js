@@ -45,7 +45,7 @@ export default class MoreOptionsHome_Layout extends Component {
               style={{ width: "100%" }}
               // hitSlop={{ top: 20, left: 10, bottom: 10, right: 10 }}
             >
-              Sabawoon Baryal
+              Haidar Khan
             </Text>
           </TouchableOpacity>
 

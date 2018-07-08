@@ -49,14 +49,22 @@ class ProfileSelectedStory extends Component {
     this.setState({ refreshOffline: refresh });
   };
 
-  editStory = (id, text, image, imageHeight) => {
-    console.log("id: ", id);
-    console.log("text: ", text);
-    console.log("image: ", image);
+  editStory = (storyText, storyImage, storyImageHeight, storyDate) => {
+    let story = {
+      storyText: storyText,
+      storyImage: storyImage,
+      storyImageHeight: storyImageHeight,
+      storyDate: storyDate,
+      editingStory: true
+    };
+    console.log("story text: ", storyText);
 
-    this.props.onEditStoryRequest(id, text, image, imageHeight);
+    // this.props.onEditStoryRequest(id, text, image, imageHeight);
 
-    this.props.navigation.navigate("AddStory");
+    this.props.navigation.navigate("AddNewStoryRoute", {
+      story: story,
+      headerTitle: "Update story"
+    });
   };
 
   deleteStory(myStoryID) {

@@ -52,10 +52,10 @@ export default class LatestStories_Layout extends Component {
     if (item.title == "Edit Story") {
       this.setState({ isModalVisible: false });
       this.props.toEditStory(
-        this.props.id,
         this.props.storyDescription,
         this.props.storyImage,
-        this.props.storyImageHeight
+        this.props.storyImageHeight,
+        this.props.storyDate
       );
     } else if (item.title == "Delete Story") {
       this.setState({ isModalVisible: false });

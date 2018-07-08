@@ -84,7 +84,7 @@ export default class UserProfile_Layout extends Component {
                     />}
               </TouchableWithoutFeedback>
 
-              <Text style={styles.profileName}>Sabawoon Baryal</Text>
+              <Text style={styles.profileName}>Haidar Khan</Text>
             </View>
           </View>
         </ImageBackground>
