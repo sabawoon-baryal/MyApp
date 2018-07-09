@@ -222,7 +222,6 @@ class AddNewStory extends Component {
   };
 
   handelCancelBtn = () => {
-    console.log("cancelled");
     this.props.navigation.goBack();
   };
 
@@ -260,6 +259,7 @@ class AddNewStory extends Component {
 
   render() {
     let story = this.props.navigation.getParam("story");
+    console.log("story: ", story);
     return (
       <View>
         <AddNewStory_Layout

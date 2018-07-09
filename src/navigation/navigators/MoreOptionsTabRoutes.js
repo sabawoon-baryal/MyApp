@@ -6,6 +6,8 @@ import ProfileStories from "../../modules/moreOptionsTab/containers/ProfileStori
 import ProfileSelectedStory from "../../modules/moreOptionsTab/containers/ProfileSelectedStory";
 import AddNewStory from "../../modules/moreOptionsTab/containers/AddNewStory";
 import AddStoryHeaderButton from "../../modules/moreOptionsTab/containers/AddStoryHeaderButton";
+import EmergencyRequests from "../../modules/emergencyRequest/containers/EmergencyRequests";
+import EmergencyRequest_PublicView from "../../modules/emergencyRequest/containers/EmergencyRequest_PublicView";
 
 const routes = {
   MoreOptionsHomeRoute: { screen: MoreOptionsHome },
@@ -13,10 +15,12 @@ const routes = {
   ProfileStoriesRoute: { screen: ProfileStories },
   SelectedStoryRoute: { screen: ProfileSelectedStory },
   AddNewStoryRoute: { screen: AddNewStory },
-  AddStoryHeaderButtonRoute: { screen: AddStoryHeaderButton }
+  AddStoryHeaderButtonRoute: { screen: AddStoryHeaderButton },
+  EmergencyRequestsRoute: { screen: EmergencyRequests },
+  EmergencyRequest_PublicViewRoute: { screen: EmergencyRequest_PublicView }
 };
 const routesConfiguration = {
-  initialRouteName: "MoreOptionsHomeRoute"
+  initialRouteName: "EmergencyRequest_PublicViewRoute"
 };
 
 export const MoreOptionsTabRouteNavigator = StackNavigator(

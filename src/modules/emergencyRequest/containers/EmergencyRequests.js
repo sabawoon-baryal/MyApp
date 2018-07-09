@@ -19,21 +19,14 @@ import { List, ListItem, SearchBar } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LATEST_STORIES } from "../../../api/constants";
 
-import LatestStories_Layout from "../layout/LatestStories_Layout";
-import {
-  fetchRequestStories,
-  fetchSuccessStories,
-  fetchFailureStories,
-  editStoryRequest,
-  editStorySuccess,
-  editStoryFailure
-} from "../actions/LatestStoriesActions";
-
-import { styles } from "../Styles";
-const stories = [
+import { styles } from "../Style";
+const ERequests = [
   {
-    text: "Kauai Highlands",
+    text: "Kauai Highlands Kauai Highlands Kauai Highlands",
     date: "Jul 6 at 11:20 AM",
+    blood: "A+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
     url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 734
@@ -41,76 +34,109 @@ const stories = [
   {
     text: "Storm is coming",
     date: "Jul 1 at 12:21 PM",
-    url: require("../../../assets/images/donating.png"),
+    blood: "B+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "png",
     height: 200
   },
   {
     text: "Venice - Grand Canal view from the Rialto Bridge",
     date: "Jun 18 at 7:49 PM",
-    url: require("../../../assets/images/profile.jpg"),
+    blood: "O+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 500
   },
   {
     text: "Mexican wolf",
     date: "Jun 15 at 8:49 AM",
-    url: require("../../../assets/images/slider-3.jpg"),
+    blood: "AB+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 538
   },
   {
     text: "Mexican wolf",
     date: "Apr 30 at 3:15 PM",
-    url: require("../../../assets/images/splash-screen.jpg"),
+    blood: "O-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 975
   },
   {
     text: "Mexican wolf",
     date: "Apr 15 at 10:01 AM",
-    url: require("../../../assets/images/blood_donation.jpg"),
+    url: require("../../../assets/images/donating-blood.jpg"),
+    blood: "O+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
     imageType: "jpg",
     height: 827
   },
   {
     text: "Mexican wolf",
     date: "Mar 15 at 5:11 AM",
-    url: require("../../../assets/images/slider-3.jpg"),
+    blood: "AB-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 538
   },
   {
     text: "Mexican wolf",
     date: "Mar 14 at 2:49 PM",
-    url: require("../../../assets/images/splash-screen.jpg"),
+    url: require("../../../assets/images/donating-blood.jpg"),
+    blood: "B+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
     imageType: "jpg",
     height: 975
   },
   {
     text: "Mexican wolf",
     date: "Feb 15 at 6:26 PM",
-    url: require("../../../assets/images/donating.png"),
+    blood: "A+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "png",
     height: 200
   },
   {
     text: "Mexican wolf",
     date: "Feb 1 at 9:19 PM",
-    url: require("../../../assets/images/blood_donation.jpg"),
+    blood: "B-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 827
   },
   {
     text: "Mexican wolf",
     date: "Jan 30 at 11:13 AM",
-    url: require("../../../assets/images/splash-screen.jpg"),
+    blood: "O+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 975
   },
   {
     text: "Mexican wolf",
     date: "Jan 29 at 7:49 PM",
+    blood: "A-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
     url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 734
@@ -118,25 +144,16 @@ const stories = [
   {
     text: "Mexican wolf",
     date: "Jan 19 at 7:49 PM",
-    url: require("../../../assets/images/blood_donation.jpg"),
+    blood: "A+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
     imageType: "jpg",
     height: 827
-  },
-  {
-    text:
-      "Mexican wolf are the hardest wolfs around the world, this comes from the another country",
-    url: null,
-    date: "Jan 11 at 1:30 PM"
-  },
-  {
-    text:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    url: null,
-    date: "Jan 7 at 10:16 AM"
   }
 ];
 
-class LatestStories extends Component {
+class EmergencyRequests extends Component {
   constructor(props) {
     super(props);
 
@@ -148,6 +165,13 @@ class LatestStories extends Component {
     };
   }
 
+  // go to emeergency request:
+  showEmergencyRequestPublicView = () => {
+    this.props.navigation.navigate("EmergencyRequest_PublicViewRoute", {
+      publicView: false
+    });
+  };
+
   // header
 
   static navigationOptions = ({ navigation }) => {
@@ -158,39 +182,12 @@ class LatestStories extends Component {
         color: "white",
         paddingRight: 10
       },
-      headerTitle: (
-        <SearchBar
-          containerStyle={{
-            width: "100%",
-            backgroundColor: "red"
-          }}
-          inputStyle={{
-            backgroundColor: "rgba(229, 50, 50, 0.7)",
-            color: "white",
-            borderRadius: 5
-          }}
-          clearIcon={{ color: "white" }}
-          showLoading
-          cancelButtonTitle="Cancel"
-          icon={{ type: "font-awesome", name: "search", color: "white" }}
-        />
-      ),
-      headerRight: (
-        <TouchableOpacity onPress={params.handlemergencyRequest}>
-          <Icon name="angellist" size={22} color="white" />
-        </TouchableOpacity>
-      )
+      headerTintColor: "white",
+      headerTitle: "Emergency Requests"
     };
   };
 
-  handleEmergencyRequestBtn = () => {
-    this.props.navigation.navigate("EmergencyRequestRoute");
-  };
-
   componentDidMount() {
-    this.props.navigation.setParams({
-      handlemergencyRequest: this.handleEmergencyRequestBtn
-    });
     this.makeRemoteRequest();
     NetInfo.isConnected.fetch().then(isConnected => {
       if (isConnected) {
@@ -243,25 +240,27 @@ class LatestStories extends Component {
 
   renderHeader = () => {
     return (
-      <View
-        style={{
-          backgroundColor: "white",
-          flexDirection: "row",
-          paddingHorizontal: 10,
-          alignItems: "center",
-          paddingVertical: 15,
-          borderBottomWidth: 8,
-          borderColor: "rgb(234, 236, 239)"
+      <SearchBar
+        lightTheme
+        containerStyle={{
+          width: "100%",
+          borderWidth: 0,
+          backgroundColor: "rgb(217, 219, 221)"
         }}
-      >
-        <Image
-          source={require("../../../assets/images/profile.jpg")}
-          style={styles.profileImage}
-        />
-        <Text onPress={this.goToAddStory} style={{ width: "100%" }}>
-          Write your story
-        </Text>
-      </View>
+        inputStyle={{
+          color: "gray",
+          backgroundColor: "white",
+          borderRadius: 5
+        }}
+        clearIcon={{ color: "gray" }}
+        showLoading
+        cancelButtonTitle="Cancel"
+        icon={{
+          type: "font-awesome",
+          name: "search",
+          color: "gray"
+        }}
+      />
     );
   };
 
@@ -286,7 +285,6 @@ class LatestStories extends Component {
   };
 
   goToProfile = () => {
-    console.log("press");
     this.props.navigation.navigate("UserProfileRoute");
   };
 
@@ -307,35 +305,12 @@ class LatestStories extends Component {
     });
   }
 
-  _renderItem = ({ item }) => {
-    console.log("item: ", item);
-    let imageHeight;
-    if (item.image !== null) {
-      imageHeight = item.height;
-    } else {
-      imageHeight = 0;
-    }
-    return (
-      <LatestStories_Layout
-        toEditStory={this.editStory}
-        toDeleteStory={this.deleteStory}
-        userFirstName="Haidar"
-        userLastName="Khan"
-        storyDate={item.storyDate}
-        storyImage={item.url}
-        storyImageHeight={imageHeight}
-        storyDescription={item.text}
-        toProfile={this.goToProfile}
-      />
-    );
-  };
-
   goToAddStory = () => {
     this.props.navigation.navigate("AddNewStoryRoute");
   };
 
   render() {
-    console.log("iamge: ", this.state.data.propImage);
+    console.log("requests: ", ERequests);
     if (true) {
       return (
         <View>
@@ -350,8 +325,34 @@ class LatestStories extends Component {
             }}
           >
             <FlatList
-              data={stories}
-              renderItem={this._renderItem}
+              data={ERequests}
+              renderItem={({ item }) =>
+                <TouchableOpacity onPress={this.showEmergencyRequestPublicView}>
+                  <ListItem
+                    roundAvatar
+                    title={`${item.blood}`}
+                    subtitle={
+                      <View style={{ marginLeft: 10 }}>
+                        <Text>
+                          {item.phone}
+                        </Text>
+                        <Text>
+                          {item.email}
+                        </Text>
+                      </View>
+                    }
+                    avatar={
+                      <Image
+                        source={item.url}
+                        style={{ width: 40, height: 40, borderRadius: 100 }}
+                      />
+                    }
+                    containerStyle={{
+                      borderBottomWidth: 0.3,
+                      borderBottomStartRadius: 65
+                    }}
+                  />
+                </TouchableOpacity>}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={this.renderSeparator}
               ListHeaderComponent={this.renderHeader}
@@ -385,4 +386,4 @@ mapStateToProps = state => {
 mapDispatchToProps = dispatch => {
   return {};
 };
-export default connect(mapStateToProps, mapDispatchToProps)(LatestStories);
+export default connect(mapStateToProps, mapDispatchToProps)(EmergencyRequests);

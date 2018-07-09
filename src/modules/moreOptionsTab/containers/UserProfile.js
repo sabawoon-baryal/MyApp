@@ -5,7 +5,8 @@ import {
   View,
   ScrollView,
   Text,
-  Image
+  Image,
+  StatusBar
 } from "react-native";
 import UserProfile_Layout from "../layout/UserProfile_Layout";
 import UserProfileOptions_Layout from "../layout/UserProfileOptions_Layout";
@@ -35,7 +36,9 @@ class UserProfile extends Component {
   goToMyStories = () => {
     this.props.navigation.navigate("ProfileStoriesRoute");
   };
-  goToMyEmergencyRequests = () => {};
+  goToMyEmergencyRequests = () => {
+    this.props.navigation.navigate("EmergencyRequestsRoute");
+  };
   goToMyEvents = () => {};
   goToMyEmail = () => {};
   goToMyPhone = () => {};
@@ -59,9 +62,8 @@ class UserProfile extends Component {
   }
 
   render() {
-    console.log(this.props.profile_updating);
     return (
-      <ScrollView>
+      <ScrollView stickyHeaderIndices={[0]}>
         <View>
           <UserProfile_Layout
             passNewProfilePicture={this.getNewProfilePictureFromPicker}
@@ -70,20 +72,18 @@ class UserProfile extends Component {
             profile_updating={this.props.profile_updating}
             profilePictureError={this.props.profilePictureError}
           />
-          <View>
-            <UserProfileOptions_Layout
-              toMyStories={this.goToMyStories}
-              toMyEmergencyRequests={this.goToMyEmergencyRequests}
-              toMyEvents={this.goToMyEvents}
-              toMyEmail={this.goToMyEmail}
-              toMyPhone={this.goToMyPhone}
-              toMyAddress={this.goToMyAddress}
-              toMyBloodType={this.goToMyBloodType}
-              toBirthDate={this.goToBirthDate}
-              toFacebook={this.goToFacebook}
-            />
-          </View>
         </View>
+        <UserProfileOptions_Layout
+          toMyStories={this.goToMyStories}
+          toMyEmergencyRequests={this.goToMyEmergencyRequests}
+          toMyEvents={this.goToMyEvents}
+          toMyEmail={this.goToMyEmail}
+          toMyPhone={this.goToMyPhone}
+          toMyAddress={this.goToMyAddress}
+          toMyBloodType={this.goToMyBloodType}
+          toBirthDate={this.goToBirthDate}
+          toFacebook={this.goToFacebook}
+        />
       </ScrollView>
     );
   }

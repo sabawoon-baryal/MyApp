@@ -34,18 +34,11 @@ export default class LatestStories_Layout extends Component {
     };
   }
   handleThePress = () => {
-    if (this.props.id !== null) return;
-    else this.props.toProfile();
+    this.props.toProfile();
   };
 
   setModalVisible = visibile => {
     this.setState({ isModalVisible: visibile });
-  };
-
-  goTo = () => {
-    list.map((item, i) => {
-      this.props.goTo(item.route);
-    });
   };
 
   handleModalBtns = item => {
@@ -88,7 +81,7 @@ export default class LatestStories_Layout extends Component {
     return (
       <View style={styles.ListItemContainer}>
         <View style={styles.ListItemHeader}>
-          <TouchableWithoutFeedback onPress={this.handleThePress.bind(this)}>
+          <TouchableWithoutFeedback onPress={this.handleThePress}>
             <Image
               source={require("../../../assets/images/profile.jpg")}
               style={styles.profileImage}
@@ -96,7 +89,7 @@ export default class LatestStories_Layout extends Component {
             />
           </TouchableWithoutFeedback>
           <View style={{ flexGrow: 1 }}>
-            <TouchableWithoutFeedback onPress={this.handleThePress.bind(this)}>
+            <TouchableWithoutFeedback onPress={this.handleThePress}>
               <View>
                 <Text style={{ color: "black" }}>
                   {`${this.props.userFirstName}`} {`${this.props.userLastName}`}

@@ -8,9 +8,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
-    backgroundColor: "white",
-    zIndex: 999
+    padding: 20
   },
   loginBtnText: { color: "white", marginLeft: -5 },
   loginBtn: {
@@ -35,6 +33,29 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     paddingVertical: 10,
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 15
+  },
+  callButton: {
+    justifyContent: "center",
+    paddingHorizontal: 10,
+    backgroundColor: "rgb(69, 204, 28)",
+    borderRadius: 5,
+    width: "40%",
+    marginBottom: 10,
+    marginTop: 15,
+    height: 40
+  },
+  sendMessageButton: {
+    width: "40%",
+    height: 40,
+    padding: 20,
+    backgroundColor: "rgb(214, 180, 70)",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 10,
     flexDirection: "row",
     justifyContent: "center",
@@ -168,6 +189,13 @@ export const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 100
   },
+  emergencyProfileImage: {
+    width: 75,
+    height: 75,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 100
+  },
   headerProfileImage: {
     width: 30,
     height: 30,
@@ -183,6 +211,13 @@ export const styles = StyleSheet.create({
   ListItemHeader: {
     padding: 10,
     paddingTop: 20,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  EmergencyListItemHeader: {
+    padding: 10,
+    paddingLeft: 15,
+    paddingTop: 30,
     flexDirection: "row",
     alignItems: "center"
   },
@@ -253,24 +288,24 @@ export const styles = StyleSheet.create({
     height: "100%"
   },
   userProfile: {
-    marginTop: 50,
+    marginTop: 100,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
   },
   profilePickerBtn: {
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
     height: "100%"
   },
   profileName: {
-    color: "rgb(0,0,0)",
-    marginTop: 10
+    color: "rgb(0,0,0)"
   },
 
   // profile options
   profileOptions: {
+    borderTopWidth: 0.2,
     backgroundColor: "rgb(255,255,255)"
   },
 

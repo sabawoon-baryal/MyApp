@@ -9,6 +9,7 @@ import com.facebook.appevents.AppEventsLogger;
 
 import android.app.Application;
 import com.facebook.react.ReactApplication;
+import com.tkporter.sendsms.SendSMSPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
@@ -41,6 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            SendSMSPackage.getInstance(),
             new RNFetchBlobPackage(),
             new ImagePickerPackage(), new PickerPackage(),
           new FBSDKPackage(mCallbackManager), new ReactSnackbarPackage(), new VectorIconsPackage());

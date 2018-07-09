@@ -179,7 +179,6 @@ class ProfileStories extends Component {
   };
 
   _renderItem = item => {
-    console.log("hello: ", item.item.text);
     return (
       <ProfileStory_Layout
         story={item}
