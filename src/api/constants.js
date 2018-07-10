@@ -23,6 +23,9 @@ const LATEST_STORIES = `http://${localhost}:8000/api/user`;
 // profile update
 const PROFILE_UPDATE = `http://${localhost}:8000/api/user`;
 
+// get emergency requests
+const EMERGENCY_REQUESTS = `http://${localhost}:8000/api/user`;
+
 export {
   LOGIN_URL,
   ACCESS_USER_URL,
@@ -31,5 +34,6 @@ export {
   FORGOT_PASSOWORD_EMAIL_VERIFICATION,
   RESET_PASSWORD_ROUTE,
   LATEST_STORIES,
-  PROFILE_UPDATE
+  PROFILE_UPDATE,
+  EMERGENCY_REQUESTS
 };

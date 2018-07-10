@@ -29,7 +29,7 @@ export default class SignUp_Welcome_Layout extends Component {
           style={styles.joinWeena}
           onPress={this.handleThePress.bind(this)}
         >
-          <Text style={styles.startBtnColor}>Get Started</Text>
+          <Text style={styles.loginBtnText}>Get Started</Text>
         </TouchableOpacity>
 
         <TouchableOpacity

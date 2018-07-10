@@ -63,7 +63,9 @@ export default class UserContactView extends Component {
               style={styles.loginBtn}
               onPress={this.handleThePress.bind(this)}
             >
+              <View />
               <Text style={styles.loginBtnText}>Continue</Text>
+              <View />
             </TouchableOpacity>}
 
         <View style={{ marginTop: 10 }}>

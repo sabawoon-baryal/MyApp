@@ -11,6 +11,14 @@ class SignUpFinal extends Component {
       this.props.navigation.navigate("home");
     }
   };
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerStyle: { backgroundColor: "red" },
+      headerTintColor: "white"
+    };
+  };
+
   render() {
     return (
       <SignUp_Final_Layout

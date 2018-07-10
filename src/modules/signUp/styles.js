@@ -34,7 +34,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     paddingVertical: 10,
     marginBottom: 10,
-    flexDirection: "row",
     justifyContent: "center",
     marginTop: 15
   },
@@ -94,8 +93,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     paddingVertical: 10,
     marginBottom: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     marginTop: 15
   },
   title: { color: "red", fontSize: 20, marginBottom: 20 },

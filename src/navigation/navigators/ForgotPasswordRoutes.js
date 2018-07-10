@@ -10,7 +10,7 @@ const routes = {
   ResetPasswordRoute: { screen: ResetPassword }
 };
 const routesConfiguration = {
-  initialRouteName: "ForgotPasswordEmailVerificationRoute",
+  initialRouteName: "ForgotPasswordRoute",
   headerMode: "none"
 };
 

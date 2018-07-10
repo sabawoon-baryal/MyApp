@@ -94,7 +94,7 @@ const routes = {
   }
 };
 const routesConfiguration = {
-  initialRouteName: "More",
+  initialRouteName: "Home",
   tabBarOptions: {
     activeTintColor: "tomato",
     inactiveTintColor: "gray"

@@ -6,6 +6,13 @@ import { signUpThunk } from "../actions/SignUpActions";
 import SignUpReducer from "../reducers/SignUpReducer";
 
 class SignUpPassword extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerStyle: { backgroundColor: "red" },
+      headerTintColor: "white"
+    };
+  };
+
   getPasswordFromLayout = async (password, confirm_password) => {
     let payload = {
       password: password,

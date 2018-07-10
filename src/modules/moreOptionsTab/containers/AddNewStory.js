@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import AddNewStory_Layout from "../layout/AddNewStory_Layout";
-// import RNFetchBlob from "react-native-fetch-blob";
 import AddStoryHeaderButton from "./AddStoryHeaderButton";
 import { addStoryButton } from "../actions/AddNewStoryActions";
 import { styles } from "../Style";
@@ -259,22 +258,23 @@ class AddNewStory extends Component {
 
   render() {
     let story = this.props.navigation.getParam("story");
-    console.log("story: ", story);
-    return (
-      <View>
-        <AddNewStory_Layout
-          editingStoryText={story.storyText}
-          editingStoryImage={story.storyImage}
-          editingStoryImageHeight={story.storyImageHeight}
-          editingStory={story.editingStory}
-          toProfile={this.goToProfile}
-          ref={child => {
-            this.child = child;
-          }}
-          disablePostBtn={this.getDisablePostBtnCondition}
-        />
-      </View>
-    );
+    if (story !== null || story !== undefined)
+      return (
+        <View>
+          <AddNewStory_Layout
+            editingStoryText={story.storyText}
+            editingStoryImage={story.storyImage}
+            editingStoryImageHeight={story.storyImageHeight}
+            editingStory={story.editingStory}
+            toProfile={this.goToProfile}
+            ref={child => {
+              this.child = child;
+            }}
+            disablePostBtn={this.getDisablePostBtnCondition}
+          />
+        </View>
+      );
+    else return <AddNewStory_Layout />;
   }
 }
 

@@ -8,6 +8,14 @@ class SignUpContact extends Component {
     this.props.signUpEmail(email);
     this.props.navigation.navigate("SignUpFullNameRoute");
   };
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerStyle: { backgroundColor: "red" },
+      headerTintColor: "white"
+    };
+  };
+
   render() {
     return <SignUp_Contact_Layout passEmail={this.getEmailFromLayout} />;
   }

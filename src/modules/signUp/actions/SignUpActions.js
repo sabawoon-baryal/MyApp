@@ -35,10 +35,13 @@ const signUpThunk = payload => {
       .then(responseJson => {
         if (responseJson.success !== null)
           dispatch(onSignUpSuccess(responseJson.success));
+
+        return true;
       })
       .catch(error => {
         console.log("sign up error: ", error);
-        dispatch(onSignUpFailure(error));
+        dispatch(onSignUpSuccess(error));
+        return true;
       });
   };
 };

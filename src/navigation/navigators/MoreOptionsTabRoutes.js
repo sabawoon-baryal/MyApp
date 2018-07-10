@@ -20,7 +20,7 @@ const routes = {
   EmergencyRequest_PublicViewRoute: { screen: EmergencyRequest_PublicView }
 };
 const routesConfiguration = {
-  initialRouteName: "EmergencyRequest_PublicViewRoute"
+  initialRouteName: "MoreOptionsHomeRoute"
 };
 
 export const MoreOptionsTabRouteNavigator = StackNavigator(

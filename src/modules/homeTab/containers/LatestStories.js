@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Linking,
   TouchableOpacity,
   NetInfo,
   View,
@@ -18,8 +19,10 @@ import { connect } from "react-redux";
 import { List, ListItem, SearchBar } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LATEST_STORIES } from "../../../api/constants";
+import call from "react-native-phone-call";
 
 import LatestStories_Layout from "../layout/LatestStories_Layout";
+import EmergencyRequest_Slider_Layout from "../../emergencyRequest/layout/EmergencyRequest_Slider_Layout";
 import {
   fetchRequestStories,
   fetchSuccessStories,
@@ -135,6 +138,146 @@ const stories = [
     date: "Jan 7 at 10:16 AM"
   }
 ];
+const ERequests = [
+  {
+    text: "Kauai Highlands Kauai Highlands Kauai Highlands",
+    date: "Jul 6 at 11:20 AM",
+    blood: "A+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 734
+  },
+  {
+    text: "Storm is coming",
+    date: "Jul 1 at 12:21 PM",
+    blood: "B+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "png",
+    height: 200
+  },
+  {
+    text: "Venice - Grand Canal view from the Rialto Bridge",
+    date: "Jun 18 at 7:49 PM",
+    blood: "O+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 500
+  },
+  {
+    text: "Mexican wolf",
+    date: "Jun 15 at 8:49 AM",
+    blood: "AB+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 538
+  },
+  {
+    text: "Mexican wolf",
+    date: "Apr 30 at 3:15 PM",
+    blood: "O-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 975
+  },
+  {
+    text: "Mexican wolf",
+    date: "Apr 15 at 10:01 AM",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    blood: "O+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    imageType: "jpg",
+    height: 827
+  },
+  {
+    text: "Mexican wolf",
+    date: "Mar 15 at 5:11 AM",
+    blood: "AB-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 538
+  },
+  {
+    text: "Mexican wolf",
+    date: "Mar 14 at 2:49 PM",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    blood: "B+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    imageType: "jpg",
+    height: 975
+  },
+  {
+    text: "Mexican wolf",
+    date: "Feb 15 at 6:26 PM",
+    blood: "A+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "png",
+    height: 200
+  },
+  {
+    text: "Mexican wolf",
+    date: "Feb 1 at 9:19 PM",
+    blood: "B-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 827
+  },
+  {
+    text: "Mexican wolf",
+    date: "Jan 30 at 11:13 AM",
+    blood: "O+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 975
+  },
+  {
+    text: "Mexican wolf",
+    date: "Jan 29 at 7:49 PM",
+    blood: "A-",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 734
+  },
+  {
+    text: "Mexican wolf",
+    date: "Jan 19 at 7:49 PM",
+    blood: "A+",
+    phone: "0789564543",
+    email: "haidarkhan@gmail.com",
+    url: require("../../../assets/images/donating-blood.jpg"),
+    imageType: "jpg",
+    height: 827
+  }
+];
+
+const args = {
+  number: "0782334239", // String value with the number to call
+  prompt: true // Optional boolean property. Determines if the user should be prompt prior to the call
+};
+
+const url =
+  Platform.OS === "android" ? "sms:1-078-555-1212" : "sms:1-078-555-1212";
 
 class LatestStories extends Component {
   constructor(props) {
@@ -170,6 +313,7 @@ class LatestStories extends Component {
             borderRadius: 5
           }}
           clearIcon={{ color: "white" }}
+          onPress={params.handleSearch}
           showLoading
           cancelButtonTitle="Cancel"
           icon={{ type: "font-awesome", name: "search", color: "white" }}
@@ -181,6 +325,28 @@ class LatestStories extends Component {
         </TouchableOpacity>
       )
     };
+  };
+
+  call = () => {
+    call(args)
+      .then(() => {
+        console.log("call success");
+      })
+      .catch(() => {
+        console.log("call failed");
+      });
+  };
+
+  sendMessage = () => {
+    Linking.canOpenURL(url)
+      .then(supported => {
+        if (!supported) {
+          console.log("Unsupported url: " + url);
+        } else {
+          return Linking.openURL(url);
+        }
+      })
+      .catch(err => console.error("An error occurred", err));
   };
 
   handleEmergencyRequestBtn = () => {
@@ -241,26 +407,106 @@ class LatestStories extends Component {
     );
   };
 
-  renderHeader = () => {
+  goToEmergencyRequestPublicView = () => {
+    this.props.navigation.navigate("EmergencyRequestRoute", {
+      publicview: true
+    });
+  };
+
+  EmergencyRequestrenderSeparator = () => {
     return (
       <View
         style={{
-          backgroundColor: "white",
-          flexDirection: "row",
-          paddingHorizontal: 10,
-          alignItems: "center",
-          paddingVertical: 15,
-          borderBottomWidth: 8,
-          borderColor: "rgb(234, 236, 239)"
+          margin: 10
         }}
-      >
-        <Image
-          source={require("../../../assets/images/profile.jpg")}
-          style={styles.profileImage}
-        />
-        <Text onPress={this.goToAddStory} style={{ width: "100%" }}>
-          Write your story
-        </Text>
+      />
+    );
+  };
+
+  _renderEmergencyRequestItem = ({ item }) => {
+    console.log("item: ", item);
+    return (
+      <EmergencyRequest_Slider_Layout
+        toProfile={this.goToProfile}
+        reqDate={item.date}
+        bloodType={item.blood}
+        userFirstName="Haidar"
+        userLastName="Khan"
+        call={this.call}
+        sendMessage={this.sendMessage}
+        goToEmergencyRequestPublicView={this.goToEmergencyRequestPublicView}
+      />
+    );
+  };
+
+  // determining the current page we are in, in horizontal flat list
+  onScrollEnd(e) {
+    let contentOffset = e.nativeEvent.contentOffset;
+    let viewSize = e.nativeEvent.layoutMeasurement;
+
+    // Divide the horizontal offset by the width of the view to see which page is visible
+    let pageNum = Math.floor(contentOffset.x / viewSize.width);
+    console.log("scrolled to page ", pageNum);
+  }
+
+  renderHeader = () => {
+    return (
+      <View>
+        <View
+          style={{
+            backgroundColor: "white",
+            flexDirection: "row",
+            paddingHorizontal: 10,
+            alignItems: "center",
+            paddingVertical: 15,
+            borderBottomWidth: 8,
+            borderColor: "rgb(234, 236, 239)"
+          }}
+        >
+          <Image
+            source={require("../../../assets/images/profile.jpg")}
+            style={styles.profileImage}
+          />
+          <Text onPress={this.goToAddStory} style={{ width: "100%" }}>
+            Write your story
+          </Text>
+        </View>
+
+        <View
+          style={{
+            borderBottomWidth: 8,
+            backgroundColor: "white",
+            borderColor: "rgb(234, 236, 239)"
+          }}
+        >
+          <View
+            style={{ paddingHorizontal: 10, paddingTop: 20, paddingBottom: 5 }}
+          >
+            <Text>Blood Emergency Requests</Text>
+          </View>
+          {/* emergency requests */}
+          <List
+            containerStyle={{
+              marginTop: 0,
+              borderTopWidth: 0,
+              borderBottomWidth: 0
+            }}
+          >
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              pagingEnabled={true}
+              legacyImplementation={false}
+              onMomentumScrollEnd={this.onScrollEnd}
+              // ItemSeparatorComponent={this.EmergencyRequestrenderSeparator}
+              horizontal={true}
+              data={ERequests}
+              renderItem={this._renderEmergencyRequestItem}
+              keyExtractor={item => item.id}
+
+              // scrollEnabled={false}
+            />
+          </List>
+        </View>
       </View>
     );
   };
@@ -286,7 +532,6 @@ class LatestStories extends Component {
   };
 
   goToProfile = () => {
-    console.log("press");
     this.props.navigation.navigate("UserProfileRoute");
   };
 
@@ -308,7 +553,6 @@ class LatestStories extends Component {
   }
 
   _renderItem = ({ item }) => {
-    console.log("item: ", item);
     let imageHeight;
     if (item.image !== null) {
       imageHeight = item.height;
@@ -330,6 +574,17 @@ class LatestStories extends Component {
     );
   };
 
+  // text: "Kauai Highlands Kauai Highlands Kauai Highlands",
+  //   date: "Jul 6 at 11:20 AM",
+  //   blood: "A+",
+  //   phone: "0789564543",
+  //   email: "haidarkhan@gmail.com",
+  //   url: require("../../../assets/images/donating-blood.jpg"),
+  //   imageType: "jpg",
+  //   height: 734
+
+  // emergency requests
+
   goToAddStory = () => {
     this.props.navigation.navigate("AddNewStoryRoute");
   };
@@ -342,6 +597,7 @@ class LatestStories extends Component {
           <StatusBar barStyle="light-content" backgroundColor="red" />
           {/* <ScrollView showsVerticalScrollIndicator={false}> */}
 
+          {/* stories */}
           <List
             containerStyle={{
               marginTop: 0,

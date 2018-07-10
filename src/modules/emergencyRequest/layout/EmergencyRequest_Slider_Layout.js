@@ -13,7 +13,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import Modal from "react-native-modal";
 import { ListItem, List } from "react-native-elements";
-import { styles } from "../Styles";
+import { styles } from "../Style";
 
 const list = [
   {
@@ -26,7 +26,7 @@ const list = [
   }
 ];
 
-export default class LatestStories_Layout extends Component {
+export default class EmergencyRequest_Slider_Layout extends Component {
   constructor() {
     super();
     this.state = {
@@ -67,20 +67,22 @@ export default class LatestStories_Layout extends Component {
     }
   };
 
-  render() {
-    // let imageHeight;
-    // if (
-    //   this.props.storyImageHeight == null ||
-    //   this.props.storyImageHeight == undefined
-    // ) {
-    //   imageHeight = 0;
-    // } else {
-    //   imageHeight = this.props.storyImageHeight;
-    // }
+  call = () => {
+    this.props.call();
+  };
+  sendMessage = () => {
+    this.props.sendMessage();
+  };
 
+  toEmergencyRequestPublicView = () => {
+    console.log("hsdjcnskdznck");
+    this.props.goToEmergencyRequestPublicView();
+  };
+
+  render() {
     return (
-      <View style={styles.ListItemContainer}>
-        <View style={styles.ListItemHeader}>
+      <View style={styles.EmergencyReqListItemContainer}>
+        <View style={styles.EmergencyRequestListItemHeader}>
           <TouchableWithoutFeedback onPress={this.handleThePress}>
             <Image
               source={require("../../../assets/images/profile.jpg")}
@@ -97,7 +99,7 @@ export default class LatestStories_Layout extends Component {
               </View>
             </TouchableWithoutFeedback>
             <Text style={{ color: "gray" }}>
-              {this.props.storyDate}
+              {this.props.reqDate}
             </Text>
           </View>
 
@@ -117,47 +119,63 @@ export default class LatestStories_Layout extends Component {
           </View>
         </View>
 
-        {this.props.storyImage !== null
-          ? <Image
-              source={this.props.storyImage}
-              style={{ height: 400, width: "100%" }}
-            />
-          : <View />}
-        {this.props.storyDescription !== null
-          ? <Text style={styles.storyDescription}>
-              {this.props.storyDescription}
+        {/* blood image */}
+
+        <TouchableOpacity onPress={this.toEmergencyRequestPublicView}>
+          <View style={styles.bloodPic}>
+            <Text style={styles.bloodPicText}>
+              {this.props.bloodType}
             </Text>
-          : <View />}
+          </View>
+        </TouchableOpacity>
 
-        <View>
-          {this.state.isModalVisible
-            ? <Modal
-                onBackdropPress={() => {
-                  this.setState({ isModalVisible: false });
-                }}
-                onBackButtonPress={() => {
-                  this.setState({ isModalVisible: false });
-                }}
-                isVisible={this.state.isModalVisible}
+        {/* call & message */}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly"
+          }}
+        >
+          <TouchableOpacity
+            style={styles.emerReqSendMessageButton}
+            onPress={this.call}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <Icon name="phone" size={17} color="gray" />
+              <Text
+                style={{ color: "gray", marginHorizontal: 10, fontSize: 12 }}
               >
-                <View style={{ borderRadius: 10 }}>
-                  <List>
-                    {list.map((item, i) =>
-                      <ListItem
-                        chevron={false}
-                        key={i}
-                        title={item.title}
-                        leftIcon={{ name: item.icon }}
-                        onPress={() => this.handleModalBtns(item)}
-                      />
-                    )}
-                  </List>
-                </View>
-              </Modal>
-            : <View />}
+                Call
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.emerReqSendMessageButton}
+            onPress={this.sendMessage}
+          >
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <Icon name="envelope" size={17} color="gray" />
+              <Text
+                style={{ color: "gray", marginHorizontal: 10, fontSize: 12 }}
+              >
+                Message
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
-
-        {/* search modal */}
         <View>
           {this.state.isModalVisible
             ? <Modal

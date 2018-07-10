@@ -48,11 +48,37 @@ export const styles = StyleSheet.create({
     marginTop: 15,
     height: 40
   },
+  emerReqSliderCallButton: {
+    width: "40%",
+    height: 40,
+    padding: 20,
+    backgroundColor: "transparent",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 15
+  },
   sendMessageButton: {
     width: "40%",
     height: 40,
     padding: 20,
     backgroundColor: "rgb(214, 180, 70)",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 15
+  },
+  emerReqSendMessageButton: {
+    width: "40%",
+    height: 40,
+    padding: 20,
+    backgroundColor: "transparent",
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
@@ -208,9 +234,23 @@ export const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 20
   },
+  EmergencyReqListItemContainer: {
+    flex: 1,
+    margin: 10,
+    borderColor: "gray",
+    borderWidth: 0.3,
+    width: "100%",
+    marginBottom: 20
+  },
   ListItemHeader: {
     padding: 10,
     paddingTop: 20,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  EmergencyRequestListItemHeader: {
+    paddingVertical: 10,
+    paddingRight: 10,
     flexDirection: "row",
     alignItems: "center"
   },
@@ -378,5 +418,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  bloodPic: {
+    backgroundColor: "rgb(249, 249, 249)",
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10
+  },
+  bloodPicText: {
+    color: "rgb(165, 57, 38)",
+    fontSize: 25
   }
 });

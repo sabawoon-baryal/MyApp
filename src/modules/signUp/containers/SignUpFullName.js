@@ -8,6 +8,14 @@ class SignUpFullName extends Component {
     this.props.signUpFullName(first_name, last_name);
     this.props.navigation.navigate("SignUpPasswordRoute");
   };
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerStyle: { backgroundColor: "red" },
+      headerTintColor: "white"
+    };
+  };
+
   render() {
     return <SignUp_FullName_Layout passFullName={this.getFullNameFromLayout} />;
   }
