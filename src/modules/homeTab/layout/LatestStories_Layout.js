@@ -173,11 +173,15 @@ export default class LatestStories_Layout extends Component {
                   <List>
                     {list.map((item, i) =>
                       <ListItem
-                        chevron={false}
                         key={i}
                         title={item.title}
                         leftIcon={{ name: item.icon }}
                         onPress={() => this.handleModalBtns(item)}
+                        containerStyle={{
+                          borderBottomStartRadius: 45,
+                          borderBottomWidth: 0.3,
+                          borderColor: "gray"
+                        }}
                       />
                     )}
                   </List>
